@@ -64,8 +64,10 @@ def scrape(num_post, group_id):
 
 
 def main():
-    gc = pygsheets.authorize(client_secret='client_secret.json')
-
+    try:
+        gc = pygsheets.authorize(client_secret='client_secret.json')
+    except:
+        print('no client_secret.json')
     
     # Open the Google Sheet by title
     sheet_title = 'bevenus 3000 posts'
